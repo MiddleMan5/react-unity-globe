@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import "./App.css";
+import logo from "./logo.svg";
 
 import Unity, { UnityContext } from "react-unity-webgl";
 
@@ -25,14 +26,23 @@ function App() {
     });
   }, []);
   return (
-    <div
-      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-    >
-      {progression !== 1 && <p>Loading {progression * 100} percent...</p>}
-      <Unity
-        unityContext={unityContext}
-        style={{ flexGrow: 1, width: "100%", height: "100%" }}
-      />
+    <div className="App">
+      <header className="App-header">
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          {/* <img src={logo} className="App-logo" alt="logo" /> */}
+          {progression !== 1 && <p>Loading {progression * 100} percent...</p>}
+          <Unity
+            unityContext={unityContext}
+            style={{ width: "100vw", height: "100vh" }}
+          />
+        </div>
+      </header>
     </div>
   );
 }
